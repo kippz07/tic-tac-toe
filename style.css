@@ -4,19 +4,39 @@ div {
     display: inline-block;
     border-style: outset;
     position: relative;
+    background: white;
+    border-color: red;
 }
 
 main {
-	width: 350px;
-    height: 350px;
+	width: 326px;
+    height: 326px;
+    margin: auto;
+    border-style: dashed;
+    padding: 5px;
+    background: lightblue;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Herculanum';
+}
+
+h2 {
+	text-align: center;
+	font-family: 'Herculanum';
+	font-size: 1px;
+}
+
+p {
+	
 }
 
 .cross {
 	position: absolute;
 	font-size: 100px;
     margin: 0;
-    top: -18px;
-    left: 25px;
+    left: 18px;
     color: red;
 }
 
@@ -24,8 +44,7 @@ main {
 	position: absolute;
     font-size: 100px;
     margin: 0;
-    top: -18px;
-    left: 25px;
+    left: 18px;
     color: blue;
 }
 
@@ -40,4 +59,16 @@ main {
 .player1 {}
 .player2 {}
 
-button {}
+button {
+	font-family: 'Herculanum';
+	display: flex;
+    margin: auto;
+    font-size: 25px;
+    border-radius: 7px;
+    background: lightblue;
+    border-color: crimson;
+}
+
+button :hover {
+	background: crimson;
+}

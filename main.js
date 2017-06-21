@@ -2,6 +2,7 @@ $(function () {
 
 	var $divs = $('div');
 	var $h1 = $('h1');
+	var $h2 = $('h2');
 	var $cross = $('.cross');
 	var $nought = $('.nought');
 	var $main = $('main');
@@ -17,6 +18,14 @@ $(function () {
 	$button.click(function (event) {
 		clear();
 	})
+
+	$button.hover(function (event) {
+		$(this).css('background', 'crimson');
+	})
+
+	$button.mouseleave(function (event) {
+		$(this).css('background', 'lightblue');
+	})
 	
 
 	$divs.each(function (event) {
@@ -27,18 +36,19 @@ $(function () {
 				$(this).children(h1El).removeClass('invisible');
 				$(this).addClass(player);
 				count++;
-				console.log(count);
 			}
 			
 				winner(player);
 			if (count === 9 && !$divs.hasClass('display')) {
 				draw();
 			}
+
+			$(this).animate({ "top": "+=1px" }, "fast" );
+			$(this).animate({ "top": "-=1px" }, "fast" );
 			
 		});
 
 	});
-	
 
 
 	function run () {
@@ -67,14 +77,20 @@ $(function () {
 	}
 
 	function draw () {
+		$divs.fadeOut();
+		$main.fadeOut();
 		$divs.addClass('display');
-		$main.append('<p>It\'s a draw!</p>');
+		$h2.html('It\'s a draw!');
+		$('h2').animate({fontSize: '80px'});
 		$button.removeClass('invisible');
 	}
 
 	function endScreen (player) {
+		$divs.fadeOut();
+		$main.fadeOut();
 		$divs.addClass('display');
-		$main.append('<p>' + player + ' wins!</p>');
+		$h2.html(player + ' wins!');
+		$('h2').animate({fontSize: '80px'});
 		$button.removeClass('invisible');
 		
 	}
@@ -87,6 +103,9 @@ $(function () {
 		$nought.addClass('invisible');
 		$divs.removeClass('display');
 		$button.addClass('invisible');
+		$divs.show();
+		$main.show();
+		$h2.css('fontSize', '1px');
 		$('div.player1').removeClass('player1');
 		$('div.player2').removeClass('player2');
 		$('p').remove();
@@ -95,7 +114,6 @@ $(function () {
 	function checkRows (player) {
 		if (($divs.eq(0).hasClass(player)) && ($divs.eq(1).hasClass(player)) && ($divs.eq(2).hasClass(player))) {
 			endScreen(player);
-
 		}
 
 		if (($divs.eq(3).hasClass(player)) && ($divs.eq(4).hasClass(player)) && ($divs.eq(5).hasClass(player))) {
