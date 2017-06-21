@@ -1,0 +1,43 @@
+div {
+	width: 100px;
+    height: 100px;
+    display: inline-block;
+    border-style: outset;
+    position: relative;
+}
+
+main {
+	width: 350px;
+    height: 350px;
+}
+
+.cross {
+	position: absolute;
+	font-size: 100px;
+    margin: 0;
+    top: -18px;
+    left: 25px;
+    color: red;
+}
+
+.nought {
+	position: absolute;
+    font-size: 100px;
+    margin: 0;
+    top: -18px;
+    left: 25px;
+    color: blue;
+}
+
+.display {
+	display: none;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.player1 {}
+.player2 {}
+
+button {}
